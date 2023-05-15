@@ -10,7 +10,7 @@ namespace Snake_and_ladder
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to snake and ladder UC1");
+            Console.WriteLine("Welcome to snake and ladder UC2");
             Console.WriteLine("Press anything to start");
             Console.ReadLine();
 
@@ -21,10 +21,7 @@ namespace Snake_and_ladder
             int Pl1_diceRoll = random.Next(1, 7);
             Pl1_numberOfRolls++;
 
-            Console.WriteLine("Dice for Player 1 Rolled: " + Pl1_diceRoll);
-
-           
-
+            
             Console.WriteLine("The position for Player 1 is : " + Pl1_position);
 
         }
