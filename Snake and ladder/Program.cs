@@ -10,6 +10,7 @@ namespace Snake_and_ladder
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Welcome to snake and ladder UC3");
             Console.WriteLine("Press anything to start");
             Console.ReadLine();
 
