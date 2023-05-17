@@ -8,38 +8,85 @@ namespace Snake_and_ladder
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            Console.WriteLine("Press anything to start");
-            Console.ReadLine();
+            int playerPosition = 0;
 
-            int Pl1_position = 0; // player's starting position
-            int Pl1_numberOfRolls = 0; // number of times the dice was rolled
-            Random random = new Random();
-
-            int Pl1_diceRoll = random.Next(1, 7);
-            Pl1_numberOfRolls++;
-
-            Console.WriteLine("Dice for Player 1 Rolled: " + Pl1_diceRoll);
-
-            int Pl1_option = random.Next(0, 3);
-            switch (Pl1_option)
+            while (playerPosition < 100)
             {
-                case 0: // No Play
-                    Console.WriteLine("No Play");
-                    break;
-                case 1: // Ladder
-                    Pl1_position += Pl1_diceRoll;
-                    Console.WriteLine("Ladder!");
-                    break;
-                case 2: // Snake
-                    Pl1_position -= Pl1_diceRoll;
-                    Console.WriteLine("Snake!!");
-                    break;
+
+               
+                Console.WriteLine("Press Enter to roll the dice...");
+                Console.ReadLine();
+
+                Random random = new Random();
+                int diceRoll = random.Next(1, 7); // Generate a random number between 1 and 6
+
+                Console.WriteLine($"You rolled a {diceRoll}");
+
+                if (playerPosition + diceRoll <= 100)
+                {
+                    playerPosition += diceRoll;
+                    Console.WriteLine($"You are now at position {playerPosition}");
+                }
+                else
+                {
+                    Console.WriteLine("Oops! You need to roll a smaller number to reach 100.");
+                }
+
+                // Check for special positions like Ladder or Snake
+                playerPosition = CheckSpecialPositions(playerPosition);
             }
 
-            Console.WriteLine("The position for Player 1 is : " + Pl1_position);
+            Console.WriteLine("Congratulations! You reached the winning position of 100!");
+        }
 
+        static int CheckSpecialPositions(int position)
+        {
+            switch (position)
+            {
+                case 3:
+                    Console.WriteLine("You encountered a ladder! Moving to position 22.");
+                    return 22;
+                case 8:
+                    Console.WriteLine("You encountered a ladder! Moving to position 26.");
+                    return 26;
+                case 11:
+                    Console.WriteLine("You encountered a ladder! Moving to position 40.");
+                    return 40;
+                case 20:
+                    Console.WriteLine("You encountered a ladder! Moving to position 29.");
+                    return 29;
+                case 17:
+                    Console.WriteLine("Oops! You encountered a snake! Moving back to position 4.");
+                    return 4;
+                case 19:
+                    Console.WriteLine("Oops! You encountered a snake! Moving back to position 7.");
+                    return 7;
+                case 27:
+                    Console.WriteLine("Oops! You encountered a snake! Moving back to position 1.");
+                    return 1;
+                case 56:
+                    Console.WriteLine("Oops! You encountered a snake! Moving back to position 8.");
+                    return 8;
+                case 52:
+                    Console.WriteLine("Oops! You encountered a snake! Moving back to position 1.");
+                    return 1;
+                case 61:
+                    Console.WriteLine("You encountered a ladder! Moving to position 78.");
+                    return 78;
+                case 75:
+                    Console.WriteLine("Oops! You encountered a snake! Moving back to position 28.");
+                    return 28;
+                case 88:
+                    Console.WriteLine("You encountered a ladder! Moving to position 92.");
+                    return 92;
+                case 99:
+                    Console.WriteLine("Oops! You encountered a snake! Moving back to position 80.");
+                    return 80;
+                default:
+                    return position;
+            }
         }
     }
 }
