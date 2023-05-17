@@ -21,7 +21,7 @@ namespace Snake_and_ladder
                 Console.ReadLine();
 
                 Random random = new Random();
-                int diceRoll = random.Next(1, 7); // Generate a random number between 1 and 6
+                int diceRoll = random.Next(1, 7); 
 
                 Console.WriteLine($"You rolled a {diceRoll}");
 
@@ -35,7 +35,7 @@ namespace Snake_and_ladder
                     Console.WriteLine("Oops! You need to roll a smaller number to reach 100.");
                 }
 
-                // Check for special positions like Ladder or Snake
+                
                 playerPosition = CheckSpecialPositions(playerPosition);
             }
 
