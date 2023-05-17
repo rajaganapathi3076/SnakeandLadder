@@ -13,7 +13,8 @@ namespace Snake_and_ladder
             int playerPosition = 0;
 
             while (playerPosition < 100)
-            {
+            { 
+                Console.WriteLine("Welcome to snake and ladder UC4");
 
                
                 Console.WriteLine("Press Enter to roll the dice...");
